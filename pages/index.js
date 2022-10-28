@@ -5,6 +5,9 @@ import { Container,
     Heading, 
     Image,
     Link, 
+    List,
+    ListItem,
+    SimpleGrid,
     useColorModeValue
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
@@ -12,21 +15,35 @@ import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { BioSection, BioYear } from '../components/bio'
+import { GridItem} from '../components/grid-item'
+import {
+    IoLogoTwitter,
+    IoLogoInstagram,
+    IoLogoGithub,
+    IoLogoDiscord
+} from 'react-icons/io5'
 
 const Page = () => {
     return (
         <Layout>
         <Container>
-            <Box borderRadius="lg" bg="useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')" p={3} mb={6} align="center">
-                Hello, I&apos;m a software engineer based in Atlanta!
-            </Box>
+        <Box
+        borderRadius="lg"
+        mb={6}
+        p={3}
+        textAlign="center"
+        bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+        css={{ backdropFilter: 'blur(10px)' }}
+      >
+        Hello, I&apos;m a software engineer based in Atlanta!
+      </Box>
 
             <Box display={{md:'flex'}}>
             <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
                 Garrett McGuire
             </Heading>
-            <p>Software engineer & Cyber-security Enthusiast</p>
+            <p>Software engineer & cyber-security Enthusiast</p>
             </Box>   
             <Box 
             flexShrink={0} 
@@ -102,6 +119,45 @@ const Page = () => {
         RockClimbing, Video Games, Reading, Hacking, & my dog Kylo.
         </Paragraph>
       </Section>
+
+      <Section delay={0.3}>
+        <Heading as="h3" variant="section-title">
+            On the web
+        </Heading>
+        <List>
+        <ListItem>
+            <Link href="https://github.com/0xGrizzly" target="_blank">
+              <Button
+                variant="ghost"
+                colorScheme="teal"
+                leftIcon={<IoLogoGithub />}
+              >
+                @0xGrizzly
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="https://instagram.com/garrett_mcguire" target="_blank">
+              <Button
+                variant="ghost"
+                colorScheme="teal"
+                leftIcon={<IoLogoInstagram/>}
+              >
+                @garrett_mcguire
+              </Button>
+            </Link>
+          </ListItem>
+          <ListItem>
+              <Button
+                variant="ghost"
+                colorScheme="teal"
+                leftIcon={<IoLogoDiscord/>}
+              >
+                @solodev#7667
+              </Button>
+          </ListItem>
+        </List>
+        </Section>
         </Container>
         </Layout>
     )
